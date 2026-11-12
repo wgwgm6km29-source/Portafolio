@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miguel Muñoz | Portafolio</title>
+  <link rel="stylesheet" href="/src/less/Estilo.less">
+</head>
+<body>
+
+  {{>Nav }}
+
+  {{>Hero }}
+
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p>
+      Soy estudiante de Ingeniería en Ciencias de la Computación. Me entusiasman los trabajos relacionados
+      con sistemas técnicos, armar y reparar computadoras, y programar. Disfruto aprender
+      cosas nuevas y aplicarlas en proyectos reales.
+    </p>
+    <div class="habilidades">
+      {{#each habilidades}}
+        <span>{{this}}</span>
+      {{/each}}
+    </div>
+  </section>
+
+  <section id="proyectos" class="fondo-alterno">
+    <h2>Proyectos</h2>
+    <div class="proyectos-grid">
+      {{#each proyectos}}
+        {{>ProyectoCard}}
+      {{/each}}
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <p>📧 <a href="mailto:miguelmuz421@gmail.com">miguelmuz421@gmail.com</a></p>
+        <p>📞 +504 9974-8357</p>
+      </div>
+
+      <!-- Este contacto funciona con Formspree, para que los mensajes lleguen a mi correo -->
+      <form id="form-contacto" action="https://formspree.io/f/xgavlqaj" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="name" required>
+
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="email" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="message" rows="4" required></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+        <p id="mensaje-exito"></p>
+      </form>
+    </div>
+  </section>
+
+  {{>Footer }}
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
